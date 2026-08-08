@@ -12,7 +12,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 sh 'docker rm -f jenkins-test || true'
-                sh 'docker run -d --name jenkins-test -p 8082:80 docker-web-app:jenkins'
+                sh 'docker run -d --name jenkins-test --network jenkins-network -p 8082:80 docker-web-app:jenkins'
             }
         }
 
