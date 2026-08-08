@@ -31,11 +31,11 @@ jobs:
           push: true
           tags: ghcr.io/saadsaleem545/docker-web-app:latest
 
-  - name: Test deployed Docker image
-    run: |
-      docker pull ghcr.io/saadsaleem545/docker-web-app:latest
-      docker run -d --name test-container -p 8080:80 ghcr.io/saadsaleem545/docker-web-app:latest
-      sleep 5
-      curl -f http://localhost:8080
-      docker stop test-container
-      docker rm test-container
+      - name: Test deployed Docker image
+        run: |
+          docker pull ghcr.io/saadsaleem545/docker-web-app:latest
+          docker run -d --name test-container -p 8080:80 ghcr.io/saadsaleem545/docker-web-app:latest
+          sleep 5
+          curl -f http://localhost:8080
+          docker stop test-container
+          docker rm test-container
